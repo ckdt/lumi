@@ -4,16 +4,13 @@
   justify-content: space-between;
   padding: var(--space-m) var(--space-m-2xl);
   background-color: var(--color-background);
+  position: relative;
+  z-index: 200;
 }
 
-.logo{
+.logo {
   width: 12rem;
   max-width: 12rem;
-}
-
-.nav {
-  display: flex;
-  gap: 1.5rem;
 }
 
 a {
@@ -23,4 +20,98 @@ a {
 a.active {
   font-weight: bolder;
   text-decoration: underline;
+}
+
+// Hamburger toggle button
+.nav-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-primary);
+
+  span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transform-origin: center;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+}
+
+.nav-toggle.is-open {
+  span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  span:nth-child(2) {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+// Full-screen overlay
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.nav-overlay.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-overlay__backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: var(--clr-brown-900);
+  opacity: 1;
+}
+
+.nav-overlay__panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-l);
+  }
+
+  a {
+    font-family: var(--font-family-sans);
+    font-size: var(--step-3);
+    font-weight: 300;
+    text-transform: uppercase;
+    color: var(--clr-brown-100);
+    letter-spacing: 0.05em;
+
+    &:hover,
+    &.active {
+      color: var(--clr-brown-300);
+    }
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
 }

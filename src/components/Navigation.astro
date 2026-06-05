@@ -7,10 +7,56 @@ import Logo from "./Logo.astro";
   <nav class="navbar">
     <Logo linkToHomepage={true} ariaLabel="Lumi Logo" />
 
-    <div class="nav" role="navigation" aria-label="Main navigation">
-      <NavItem class="nav__item" href="/">Home</NavItem>
-      <NavItem class="nav__item" href="/blog">Blog</NavItem>
-      <NavItem class="nav__item" href="/about">About</NavItem>
-    </div>
+    <button
+      class="nav-toggle"
+      aria-expanded="false"
+      aria-controls="nav-overlay"
+      aria-label="Open menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true">
+    <div class="nav-overlay__backdrop"></div>
+    <div class="nav-overlay__panel">
+      <nav role="navigation" aria-label="Main navigation">
+        <NavItem href="/">Home</NavItem>
+        <NavItem href="/blog">Blog</NavItem>
+        <NavItem href="/about">About</NavItem>
+      </nav>
+    </div>
+  </div>
 </header>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle')!;
+  const overlay = document.querySelector<HTMLElement>('.nav-overlay')!;
+  const backdrop = overlay.querySelector<HTMLElement>('.nav-overlay__backdrop')!;
+
+  function open() {
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Close menu');
+    overlay.setAttribute('aria-hidden', 'false');
+    toggle.classList.add('is-open');
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    overlay.setAttribute('aria-hidden', 'true');
+    toggle.classList.remove('is-open');
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  toggle.addEventListener('click', () =>
+    toggle.classList.contains('is-open') ? close() : open()
+  );
+  backdrop.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => e.key === 'Escape' && close());
+</script>
