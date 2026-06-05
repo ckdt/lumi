@@ -1,0 +1,18 @@
+---
+import { getCollection } from "astro:content";
+import RetreatCard from "./cards/RetreatCard.astro";
+
+const retreats = (await getCollection("retreats")).filter(
+  (r) => r.data.featured,
+);
+---
+
+<section class="retreats">
+  <div class="retreats__container">
+    <div class="retreats__content">
+      <ul class="retreats-list">
+        {retreats.map((r) => <RetreatCard item={r} />)}
+      </ul>
+    </div>
+  </div>
+</section>

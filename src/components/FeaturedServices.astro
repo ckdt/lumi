@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import ServiceCard from "./cards/ServiceCard.astro";
+
+const services = (await getCollection("services")).filter(
+  (s) => s.data.featured,
+);
+---
+
+<section class="services">
+  <div class="services__container">
+    <div class="services__header">
+      <h2 class="services__title">Services</h2>
+    </div>
+    <div class="services__content">
+      <ul class="services-list">
+        {services.map((s) => <ServiceCard item={s} />)}
+      </ul>
+    </div>
+  </div>
+</section>

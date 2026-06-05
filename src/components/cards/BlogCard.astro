@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseCard from './BaseCard.astro';
+import FormattedDate from '../FormattedDate.astro';
+
+interface Props {
+  item: CollectionEntry<'blog'>;
+}
+
+const { item } = Astro.props;
+const { title, heroImage, pubDate, description } = item.data;
+const href = `/blog/${item.id}/`;
+---
+
+<BaseCard variant="blog">
+  {heroImage && (
+    <a slot="image" class="card__image" href={href}>
+      <Image src={heroImage} alt={title} />
+    </a>
+  )}
+
+  <p class="card__date"><FormattedDate date={pubDate} /></p>
+  <h3 class="card__title"><a href={href}>{title}</a></h3>
+  <p class="card__description">{description}</p>
+</BaseCard>

@@ -1,0 +1,16 @@
+@use '/node_modules/utopia-core-scss/src/utopia' as utopia;
+
+/* @link https://utopia.fyi/space/calculator?c=393,17,1.125,1440,17,1.2,8,2,&s=0.75|0.5|0.25,1.5|2|3|4|6|8,s-l|m-2xl|m-3xl|xl-4xl&g=s,xl,2xl,12 */
+:root {
+  @include utopia.generateSpaceScale((
+    "minWidth": 393,
+    "maxWidth": 1440,
+    "minSize": 16,
+    "maxSize": 22,
+    "positiveSteps": (1.5, 2, 3, 4, 6, 8),
+    "negativeSteps": (0.75, 0.5, 0.25),
+    "customSizes": ("s-l", "m-2xl", "m-3xl", "xl-4xl"),
+    "prefix": "space-",
+    "relativeTo": "viewport-width",
+  ));
+}

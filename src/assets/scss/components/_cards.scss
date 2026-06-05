@@ -1,0 +1,79 @@
+// Base card — shared by service, retreat, and blog cards
+.card {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__image {
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.card__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card__title {
+  a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.card__highlights {
+  list-style: none;
+  padding: 0;
+}
+
+.card__details {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3xs) var(--space-s);
+
+  dt {
+    font-weight: 600;
+  }
+}
+
+// Per-type overrides
+.card--service {}
+.card--retreat {}
+.card--blog {}
+
+// Testimonials have a distinct structure
+.testimonial-card {
+  list-style: none;
+}
+
+.testimonial-card__rating {
+  color: var(--color-accent, currentColor);
+  letter-spacing: 0.1em;
+}
+
+.testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+
+  img {
+    border-radius: 50%;
+  }
+
+  strong {
+    display: block;
+  }
+
+  span {
+    font-size: var(--step--1);
+  }
+}

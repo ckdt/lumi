@@ -1,0 +1,21 @@
+:root {
+    --clr-brown-600: #5D380D;
+    --clr-brown-500: #956837;
+    --clr-brown-400: #CCA169;
+    --clr-brown-300: #E3C79D;
+    --clr-brown-200: #E9DDCB;
+    --clr-brown-100: #FAF7F0;
+
+    --clr-green-600: #2F5028;
+    --clr-green-500: #567E4E;
+    --clr-green-400: #8BB283;
+    --clr-green-300: #C6E0C1;
+    --clr-green-200: #EDF7EF;
+    --clr-green-100: #F7FBF7;
+
+    --color-background: var(--clr-brown-100);
+    --color-text: var(--clr-brown-600);
+
+    --color-primary: var(--clr-brown-600);
+    --color-secondary: var(--clr-brown-400);
+  }

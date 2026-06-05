@@ -1,0 +1,14 @@
+body{
+  font-family: var(--font-family-sans);
+  font-size: var(--step-0);
+  letter-spacing: -0.025em;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-family-serif);
+  font-weight: 300;
+  text-transform: uppercase;
+}

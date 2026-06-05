@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import TestimonialCard from "./cards/TestimonialCard.astro";
+
+const testimonials = (await getCollection("testimonials")).filter(
+  (t) => t.data.featured,
+);
+---
+
+<section class="testimonials">
+  <div class="testimonials__container">
+    <div class="testimonials__header">
+      <h2 class="testimonials__title">A few kind words</h2>
+    </div>
+    <div class="testimonials__content">
+      <ul class="testimonials-list">
+        {testimonials.map((t) => <TestimonialCard item={t} />)}
+      </ul>
+    </div>
+  </div>
+</section>

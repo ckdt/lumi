@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseCard from './BaseCard.astro';
+
+interface Props {
+  item: CollectionEntry<'retreats'>;
+}
+
+const { item } = Astro.props;
+const { title, subtitle, image, description, details, price, bookingLink } = item.data;
+---
+
+<BaseCard variant="retreat">
+  {image && (
+    <div slot="image" class="card__image">
+      <Image src={image} alt={title} />
+    </div>
+  )}
+
+  <h3 class="card__title">{title}</h3>
+  {subtitle && <p class="card__subtitle">{subtitle}</p>}
+  <p class="card__description">{description}</p>
+  {details && (
+    <dl class="card__details">
+      {details.where && <><dt>Where</dt><dd>{details.where}</dd></>}
+      {details.when && <><dt>When</dt><dd>{details.when}</dd></>}
+      {details.groupSize && <><dt>Group size</dt><dd>{details.groupSize}</dd></>}
+      {details.including && <><dt>Including</dt><dd>{details.including}</dd></>}
+    </dl>
+  )}
+  <p class="card__price">{price}</p>
+
+  <a slot="footer" href={bookingLink} class="btn">Book retreat</a>
+</BaseCard>

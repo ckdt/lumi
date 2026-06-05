@@ -15,7 +15,10 @@
     "@astrojs/mdx": "^6.0.2",
     "@astrojs/rss": "^4.0.18",
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/work-sans": "^5.2.8",
     "astro": "^6.4.4",
-    "sharp": "^0.34.3"
+    "sass": "^1.100.0",
+    "sharp": "^0.34.3",
+    "utopia-core-scss": "^1.3.1"
   }
 }

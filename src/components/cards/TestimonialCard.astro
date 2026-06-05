@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+interface Props {
+  item: CollectionEntry<'testimonials'>;
+}
+
+const { item } = Astro.props;
+const { rating, description, authorName, authorDescription, authorImage } = item.data;
+---
+
+<li class="testimonial-card">
+  <p class="testimonial-card__rating" aria-label={`${rating} out of 5 stars`}>
+    {'★'.repeat(rating)}{'☆'.repeat(5 - rating)}
+  </p>
+  <blockquote class="testimonial-card__quote">{description}</blockquote>
+  <footer class="testimonial-card__author">
+    {authorImage && (
+      <Image src={authorImage} alt={authorName} width={48} height={48} />
+    )}
+    <div>
+      <strong>{authorName}</strong>
+      {authorDescription && <span>{authorDescription}</span>}
+    </div>
+  </footer>
+</li>
