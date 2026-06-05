@@ -1,15 +1,19 @@
 ---
 interface Props {
-  variant: 'service' | 'retreat' | 'blog' | 'testimonial';
+  variant: "service" | "retreat" | "blog" | "testimonial";
 }
 
 const { variant } = Astro.props;
 ---
 
 <li class={`card card--${variant}`}>
-  <slot name="image" />
-  <div class="card__body">
+  <div class="card__header">
+    <slot name="header" />
+  </div>
+  <div class="card__content">
     <slot />
   </div>
-  <slot name="footer" />
+  <div class="card__footer">
+    <slot name="footer" />
+  </div>
 </li>

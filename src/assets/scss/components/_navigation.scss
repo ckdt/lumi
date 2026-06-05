@@ -1,0 +1,26 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-m) var(--space-m-2xl);
+  background-color: var(--color-background);
+}
+
+.logo{
+  width: 12rem;
+  max-width: 12rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+a.active {
+  font-weight: bolder;
+  text-decoration: underline;
+}

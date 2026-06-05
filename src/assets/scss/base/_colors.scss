@@ -1,9 +1,11 @@
 :root {
-    --clr-brown-600: #5D380D;
+    --clr-brown-700: #5D380D;
+    --clr-brown-600: #824F1D;
     --clr-brown-500: #956837;
     --clr-brown-400: #CCA169;
     --clr-brown-300: #E3C79D;
     --clr-brown-200: #E9DDCB;
+    --clr-brown-150: #F7F1E6;
     --clr-brown-100: #FAF7F0;
 
     --clr-green-600: #2F5028;
@@ -13,9 +15,30 @@
     --clr-green-200: #EDF7EF;
     --clr-green-100: #F7FBF7;
 
-    --color-background: var(--clr-brown-100);
-    --color-text: var(--clr-brown-600);
-
-    --color-primary: var(--clr-brown-600);
+    --color-primary: var(--clr-brown-700);
     --color-secondary: var(--clr-brown-400);
+
+    --color-background: var(--clr-brown-100);
+    --color-text: var(--clr-brown-700);
+    --color-text-secondary: var(--clr-brown-600);
+    --color-text-highlight: var(--clr-brown-400);
+    --color-text-muted: var(--clr-brown-500);
+
+    --color-border: var(--clr-brown-400);
+
+    --color-button-bg-default: transparent;
+    --color-button-bg-hover: var(--color-primary);
+
+    --color-button-text-default: var(--clr-text);
+    --color-button-text-hover: var(--clr-brown-100);
+    
+    --color-button-border-default: var(--color-border);
+    --color-button-border-hover: var(--clr-brown-600);
+
+    --color-card-bg-default: var(--clr-brown-150);
+    --color-card-bg-hover: var(--clr-brown-200);
+    --color-card-border-default: var(--color-border);
+    --color-card-border-hover: var(--clr-brown-600);
+
+
   }

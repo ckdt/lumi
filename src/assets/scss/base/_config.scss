@@ -1,4 +1,6 @@
 :root{
   --font-family-sans: 'Work Sans Variable', Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif; // Work Sans = imported by fontsource in BaseHead.astro
   --font-family-serif: Times New Roman, Times, Baskerville, Georgia, serif;
+  --card-radius: 0.5rem;
+  --button-radius: 100%;
 }

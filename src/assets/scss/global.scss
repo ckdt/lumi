@@ -7,6 +7,10 @@
 
 @use 'base/_colors';
 @use 'base/_styles';
+
+@use 'components/_navigation';
+@use 'components/_button';
+@use 'components/_hero';
 @use 'components/_cards';
 
 // @use 'base/debug';

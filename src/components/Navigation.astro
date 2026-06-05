@@ -1,0 +1,16 @@
+---
+import NavItem from "./NavItem.astro";
+import Logo from "./Logo.astro";
+---
+
+<header>
+  <nav class="navbar">
+    <Logo linkToHomepage={true} ariaLabel="Lumi Logo" />
+
+    <div class="nav" role="navigation" aria-label="Main navigation">
+      <NavItem class="nav__item" href="/">Home</NavItem>
+      <NavItem class="nav__item" href="/blog">Blog</NavItem>
+      <NavItem class="nav__item" href="/about">About</NavItem>
+    </div>
+  </nav>
+</header>

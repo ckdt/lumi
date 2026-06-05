@@ -13,7 +13,7 @@ const services = (await getCollection("services")).filter(
       <h2 class="services__title">Services</h2>
     </div>
     <div class="services__content">
-      <ul class="services-list">
+      <ul class="services__list">
         {services.map((s) => <ServiceCard item={s} />)}
       </ul>
     </div>
