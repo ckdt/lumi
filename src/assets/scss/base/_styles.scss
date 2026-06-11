@@ -68,37 +68,148 @@ h1, h2, h3, h4 {
     padding-bottom: var(--space-m);
 }
 
-/* SERVICES */
+/* ===== SECTION CONTAINERS ===== */
 
-.services{
-  padding: var(--space-xl-2xl);
+.services__container,
+.retreats__container,
+.testimonials__container,
+.blog__container {
+  max-width: var(--grid-max-width);
+  padding-inline: var(--grid-gutter);
+  margin-inline: auto;
+}
+
+/* ===== SERVICES ===== */
+
+.services {
+  padding-block: var(--space-xl-4xl);
 }
 
 .services__header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-m);
-  padding-bottom: var(--space-xl);
+  padding-bottom: var(--space-3xl);
 }
-
 
 .services__title {
   font-size: var(--step-7);
-  line-height: 0.98;
+  line-height: 0.9;
+  text-align: center;
   color: var(--color-text-primary);
-  max-width: 24ch;
-  padding-bottom: var(--space-m);
 }
 
-.services__content{
+.services__content {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
 .services__list {
   display: flex;
   flex-direction: column;
+  gap: var(--space-xl);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  max-width: calc(var(--grid-max-width) * 2 / 3);
+}
+
+/* ===== RETREATS ===== */
+
+.retreats {
+  padding-block-end: var(--space-3xl);
+}
+
+.retreats-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== TESTIMONIALS ===== */
+
+.testimonials {
+  padding-block: var(--space-3xl);
+  background-color: var(--clr-brown-150);
+}
+
+.testimonials__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--space-3xl);
+}
+
+.testimonials__title {
+  font-size: var(--step-7);
+  line-height: 0.9;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.testimonials__content {
+  width: 100%;
+}
+
+.testimonials-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== BLOG ===== */
+
+.blog {
+  padding-block: var(--space-3xl);
+}
+
+.blog__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--space-3xl);
+}
+
+.blog__title {
+  font-size: var(--step-7);
+  line-height: 0.9;
+  text-align: center;
+  color: var(--color-text-primary);
+}
+
+.blog__content {
+  width: 100%;
+}
+
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 60rem) {
+  .testimonials-list,
+  .blog-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 40rem) {
+  .services__list {
+    max-width: 100%;
+  }
+
+  .testimonials-list,
+  .blog-list {
+    grid-template-columns: 1fr;
+  }
 }

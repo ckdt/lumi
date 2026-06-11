@@ -1,35 +1,68 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { Image } from 'astro:assets';
-import BaseCard from './BaseCard.astro';
+import type { CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+import BaseCard from "./BaseCard.astro";
 
 interface Props {
-  item: CollectionEntry<'retreats'>;
+  item: CollectionEntry<"retreats">;
 }
 
 const { item } = Astro.props;
-const { title, subtitle, image, description, details, price, bookingLink } = item.data;
+const { title, subtitle, image, description, details, price, bookingLink } =
+  item.data;
 ---
 
 <BaseCard variant="retreat">
-  {image && (
-    <div slot="image" class="card__image">
-      <Image src={image} alt={title} />
-    </div>
-  )}
+  {
+    image && (
+      <div slot="header" class="card__image">
+        <Image src={image} alt={title} />
+      </div>
+    )
+  }
 
   <h3 class="card__title">{title}</h3>
   {subtitle && <p class="card__subtitle">{subtitle}</p>}
-  <p class="card__description">{description}</p>
-  {details && (
-    <dl class="card__details">
-      {details.where && <><dt>Where</dt><dd>{details.where}</dd></>}
-      {details.when && <><dt>When</dt><dd>{details.when}</dd></>}
-      {details.groupSize && <><dt>Group size</dt><dd>{details.groupSize}</dd></>}
-      {details.including && <><dt>Including</dt><dd>{details.including}</dd></>}
-    </dl>
-  )}
-  <p class="card__price">{price}</p>
 
-  <a slot="footer" href={bookingLink} class="btn">Book retreat</a>
+  <div class="card__body">
+    <p class="card__description">{description}</p>
+    {
+      details && (
+        <dl class="card__details">
+          {details.where && (
+            <div>
+              <dt>Where</dt>
+              <dd>{details.where}</dd>
+            </div>
+          )}
+          {details.when && (
+            <div>
+              <dt>When</dt>
+              <dd>{details.when}</dd>
+            </div>
+          )}
+          {details.groupSize && (
+            <div>
+              <dt>Group size</dt>
+              <dd>{details.groupSize}</dd>
+            </div>
+          )}
+          {details.including && (
+            <div>
+              <dt>Including</dt>
+              <dd>{details.including}</dd>
+            </div>
+          )}
+        </dl>
+      )
+    }
+  </div>
+
+  <div slot="footer" class="card__footer-inner">
+    <div class="card__price-block">
+      <p class="card__price-label">From:</p>
+      <p class="card__price">{price}</p>
+    </div>
+    <a href={bookingLink} class="btn btn--l btn--secondary">Book a seat</a>
+  </div>
 </BaseCard>

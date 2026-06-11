@@ -1,5 +1,6 @@
 ---
 title: Wellness Weekend Rotterdam
+image: ../../assets/img/studio-lumi-pancha-karma-retreat.jpg
 subtitle: A two-day reset for body and mind
 description: Spend a restorative weekend at Studio Lumi. We combine beauty rituals, ear seeding sessions, and mindful movement into a small-group experience that helps you slow down and feel renewed.
 details:

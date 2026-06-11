@@ -22,7 +22,7 @@ const { title, image, duration, price, description, highlights, bookingLink } =
   }
 
   <h3 class="card__title">{title}</h3>
-  <p class="card__meta">{duration} | {price}</p>
+  <p class="card__meta">{duration}</p>
   <div class="card__details">
     <p class="card__detail card__description">{description}</p>
     {
@@ -36,5 +36,8 @@ const { title, image, duration, price, description, highlights, bookingLink } =
     }
   </div>
 
-  <a slot="footer" href={bookingLink} class="btn">Book now</a>
+  <div slot="footer" class="card__footer-inner">
+    <p class="card__price">{price}</p>
+    <a href={bookingLink} class="btn btn--s btn--primary">Book</a>
+  </div>
 </BaseCard>

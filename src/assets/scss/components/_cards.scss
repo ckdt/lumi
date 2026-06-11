@@ -7,7 +7,6 @@
   border: 1px solid var(--color-card-border-default);
   background-color: var(--color-card-bg-default);
   overflow: hidden;
-  padding: var(--space-m);
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -17,6 +16,10 @@
 }
 
 .card__header {
+  a {
+    display: block;
+  }
+
   img {
     width: 100%;
     height: auto;
@@ -28,6 +31,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  padding: var(--space-m);
+}
+
+.card__footer{
+  padding: 0 var(--space-m) var(--space-m) var(--space-m);
 }
 
 .card__title {
@@ -58,69 +66,327 @@
 
 // Per-type overrides
 .card--service {
-  .card__title{
-    color: var(--color-text);
-    font-size: var(--step-4);
-    font-weight: 300;
-    letter-spacing: 0.025rem;
-    text-transform: uppercase;
-    line-height: 1.2;
-    padding-bottom: var(--space-2xs);
-  }
-  .card__meta{
-    color: var(--color-text-muted);
-    font-weight: 600;
-  }
-  .card__meta::after{
-    content: '';
-    display: block;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-text-highlight);
-    margin: var(--space-2xs) auto 0;
-  }
-  .card__details{
-    display:flex;
-    flex-direction: row;
-    gap: var(--space-m);
+  --card-radius: 1rem;
+  color: var(--color-text-muted);
 
-    .card__detail{
-      flex: 1 1 0px;
+  .card__header:empty {
+    display: none;
+  }
+
+  .card__title {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-4);
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: var(--color-text);
+    padding-bottom: var(--space-3xs);
+  }
+
+  .card__meta {
+    font-size: var(--step-0);
+    font-weight: 700;
+    color: var(--color-text-muted);
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-text-highlight);
+      margin: var(--space-s) 0 0;
     }
   }
 
+  .card__details {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-m);
+    margin-top: var(--space-s);
 
+    .card__detail {
+      flex: 1 1 0px;
+      font-size: var(--step-0);
+      line-height: 1.4;
+    }
+  }
 
-  color: var(--color-text-muted)
+  .card__highlights {
+    list-style: disc;
+    padding-left: var(--space-s);
+  }
 
+  .card__content {
+    &::after {
+      content: '';
+      display: block;
+      align-self: stretch;
+      height: 1px;
+      background-color: var(--color-text-highlight);
+      margin-top: var(--space-s);
+    }
+  }
+
+  // .card__footer {
+  //   //padding: var(--space-m);
+  // }
+
+  .card__footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .card__price {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-5);
+    line-height: 0.9;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+  }
 }
-.card--retreat {}
-.card--blog {}
+.card--retreat {
+  --card-radius: 1rem;
+  --color-card-bg-default: var(--clr-green-200);
+  --color-card-bg-hover: var(--clr-green-300);
+  --color-card-border-default: var(--clr-green-500);
+  --color-card-border-hover: var(--clr-green-600);
+
+  color: var(--clr-green-500);
+
+  .card__title {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-6);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: 0.025em;
+    color: var(--clr-green-600);
+    padding-bottom: var(--space-3xs);
+  }
+
+  .card__subtitle {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-3);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--clr-green-500);
+
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background-color: var(--clr-green-400);
+      margin: var(--space-s) 0 0;
+    }
+  }
+
+  .card__body {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: var(--space-4xl);
+    margin-top: var(--space-s);
+
+    @media (max-width: 60rem) {
+      grid-template-columns: 1fr;
+      gap: var(--space-m);
+    }
+  }
+
+  .card__description {
+    font-size: var(--step-0);
+    line-height: 1.4;
+    color: var(--clr-green-500);
+  }
+
+  .card__details {
+    background-color: var(--clr-green-500);
+    border-radius: 0.5rem;
+    padding: var(--space-m) var(--space-s);
+    display: flex;
+    flex-direction: column;
+
+    > div {
+      display: flex;
+      gap: var(--space-xs);
+
+      & + div {
+        margin-top: var(--space-s);
+        border-top: 1px solid var(--clr-green-300);
+        padding-top: var(--space-s);
+      }
+
+      dt {
+        flex: 0 0 7rem;
+        font-size: var(--step-0);
+        font-weight: 600;
+        color: var(--clr-green-400);
+        line-height: 1.4;
+      }
+
+      dd {
+        flex: 1;
+        font-size: var(--step-0);
+        color: var(--clr-brown-100);
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .card__content {
+    &::after {
+      content: '';
+      display: block;
+      align-self: stretch;
+      height: 1px;
+      background-color: var(--clr-green-400);
+      margin-top: var(--space-s);
+    }
+  }
+
+  .card__footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .card__price-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xs);
+  }
+
+  .card__price-label {
+    font-size: var(--step-0);
+    color: var(--clr-green-500);
+    line-height: 1.2;
+  }
+
+  .card__price {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-5);
+    line-height: 0.9;
+    color: var(--clr-green-500);
+    text-transform: uppercase;
+  }
+}
+.card--blog {
+  --card-radius: 1rem;
+  --color-card-border-default: var(--clr-brown-700);
+  --color-card-border-hover: var(--clr-brown-700);
+
+  .card__date {
+    font-size: var(--step-0);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    line-height: 1.2;
+  }
+
+  .card__title {
+    font-family: var(--font-family-serif);
+    font-size: var(--step-3);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.9;
+    letter-spacing: 0.025em;
+    color: var(--color-text);
+    margin-top: var(--space-3xs);
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .card__description {
+    font-size: var(--step-0);
+    color: var(--color-text);
+    line-height: 1.2;
+  }
+
+  .card__read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-family-serif);
+    font-size: var(--step-0);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: var(--color-text-muted);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--color-text);
+    }
+  }
+}
 
 // Testimonials have a distinct structure
 .testimonial-card {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+  padding: var(--space-m) var(--space-3xs);
 }
 
 .testimonial-card__rating {
-  color: var(--color-accent, currentColor);
+  font-size: var(--step-1);
+  color: var(--color-text);
   letter-spacing: 0.1em;
+  line-height: 1;
+}
+
+.testimonial-card__quote {
+  font-size: var(--step-0);
+  color: var(--color-text-muted);
+  line-height: 1.2;
+  font-style: normal;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background-color: var(--color-text-highlight);
+    margin-top: var(--space-m);
+  }
 }
 
 .testimonial-card__author {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
+  gap: var(--space-s);
 
   img {
     border-radius: 50%;
+    flex-shrink: 0;
   }
 
   strong {
     display: block;
+    font-family: var(--font-family-serif);
+    font-size: var(--step-3);
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: var(--color-text);
   }
 
   span {
-    font-size: var(--step--1);
+    display: block;
+    font-size: var(--step-0);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    line-height: 1.2;
+    margin-top: var(--space-3xs);
   }
 }

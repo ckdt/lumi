@@ -15,7 +15,7 @@ const href = `/blog/${item.id}/`;
 
 <BaseCard variant="blog">
   {heroImage && (
-    <a slot="image" class="card__image" href={href}>
+    <a slot="header" class="card__image" href={href}>
       <Image src={heroImage} alt={title} />
     </a>
   )}
@@ -23,4 +23,8 @@ const href = `/blog/${item.id}/`;
   <p class="card__date"><FormattedDate date={pubDate} /></p>
   <h3 class="card__title"><a href={href}>{title}</a></h3>
   <p class="card__description">{description}</p>
+
+  <a slot="footer" href={href} class="card__read-more">
+    Read post <span aria-hidden="true">→</span>
+  </a>
 </BaseCard>
